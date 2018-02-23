@@ -55,7 +55,6 @@ main() {
 
     push_download_todo() {
         get_all_submission_ids "$username" \
-            | head -n10 \
             | filter_existing_submissions > "$DOWNLOAD_TODO"
     }
 
