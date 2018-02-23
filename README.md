@@ -1,7 +1,9 @@
 # hacktributor
 
 Add your [hacker news](https://news.ycombinator.com) comments to your
-GitHub contribution graph!
+GitHub contribution graph! See
+[milesforks/hacktributor](https://github.com/milesforks/hacktributor)
+for an example.
 
 ## Installation
 
