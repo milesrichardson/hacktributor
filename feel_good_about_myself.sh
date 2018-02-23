@@ -27,7 +27,7 @@ cleanup() {
 trap cleanup SIGINT
 
 usage() {
-    echo "./feel_good_about_myself.sh username [numDownloadWorkers=10]" >&2
+    echo "./feel_good_about_myself.sh username [numDownloadWorkers=10]"
     echo "    username = your news.ycombinator.com username"
     echo "    numDownloadWorkers = number of parallel downloads (default 10)"
 }
@@ -39,7 +39,7 @@ main() {
     local nWorkers=${1-$DEFAULT_NUM_WORKERS}
 
     if test -z "$username" ; then
-        usage
+        usage >&2
         exit 1
     fi
 
@@ -56,13 +56,6 @@ main() {
     push_download_todo() {
         get_all_submission_ids "$username" \
             | filter_existing_submissions > "$DOWNLOAD_TODO"
-    }
-
-    read_download_todo() {
-        while read -r line
-        do
-            echo "$line"
-        done < "$DOWNLOAD_TODO"
     }
 
     push_download_todo &
